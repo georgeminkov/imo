@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Investors List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="top-bar">
+        <img src="logo.png" alt="Logo" id="logo">
+        <h1>HEAAD LABLE</h1>
+    </div>
+    <h1>Investors</h1>
+    <div id="investors-list">
+        <% investors.forEach(investor=> { %>
+            <div class="investor">
+                <h2>
+                    <%= investor.name %>
+                </h2>
+                <p>Website: <a href="<%= investor.website %>">
+                        <%= investor.website %>
+                    </a></p>
+                <img src="<%= investor.website %>/<%= investor.logo %>" alt="<%= investor.name %> Logo">
+                <p>Contacts: <%= investor.contacts %>
+                </p>
+            </div>
+            <% }) %>
+    </div>
+    <h2>Comments</h2>
+    <div id="comments-section">
+        <!-- Comments will be dynamically loaded here -->
+    </div>
+    <script src="comments.js"></script>
+</body>
+
+</html>

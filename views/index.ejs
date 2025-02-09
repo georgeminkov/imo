@@ -5,6 +5,7 @@
     <title>TITLE HERE</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
@@ -12,15 +13,23 @@
         <img src="logo.png" alt="Logo" id="logo">
         <h1>HEAAD LABLE</h1>
         <div id="custom-dropdown">
-            <button id="dropdown-button">Filter: All Investors</button>
+            <button id="dropdown-button">All Investors</button>
             <div id="dropdown-content" class="dropdown-content">
-                <!-- Options will be populated here -->
             </div>
         </div>
     </div>
     <div id="map"></div>
+    <footer id="page-footer">
+        <span class="footerlable">Site Name</span>
+        <div id="footer-icons">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="mailto:example@example.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+    <button id="footer-toggle" onclick="toggleFooter()">▲</button>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-    <script src="base.js"></script>
+    <script src="js/base.js"></script>
+    <script src="js/footer"></script>
 </body>
 
 </html>

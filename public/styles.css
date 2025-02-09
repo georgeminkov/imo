@@ -1,153 +1,215 @@
 body {
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 h1 {
-text-align: center;
-margin-bottom: 20px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 ul {
-list-style-type: none;
-padding: 0;
+    list-style-type: none;
+    padding: 0;
 }
 
 li {
-margin-bottom: 20px;
-border-bottom: 1px solid #ccc;
-padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
 }
 
 h2 {
-margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 a {
-color: #007bff;
-text-decoration: none;
+    color: #007bff;
+    text-decoration: none;
 }
 
 img {
-max-width: 200px;
-display: block;
-margin: 0 auto;
+    max-width: 225px;
+    display: block;
+    margin: 0 auto;
 }
 
 #top-bar {
-display: flex;
-align-items: center;
-justify-content: space-between;
-background-color: #333;
-color: #b20149;
-padding: 10px;
-position: relative;
-z-index: 1000; /* Ensure top bar is above the map */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    color: #b20149;
+    padding: 10px;
+    position: relative;
+    z-index: 1000;
+    /* Ensure top bar is above the map */
 }
 
 #logo {
-height: 40px;
-margin-left: 10px;
+    height: 40px;
+    margin-left: 10px;
 }
 
 #top-bar h1 {
-position: absolute;
-left: 50%;
-transform: translateX(-50%);
-margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
 }
 
 #custom-dropdown {
-position: relative;
-display: inline-block;
+    position: relative;
+    display: inline-block;
 }
 
 #dropdown-button {
-padding: 10px;
-border-radius: 5px;
-border: 1px solid #ccc;
-font-size: 16px;
-background-color: #333;
-color: white;
-cursor: pointer;
-text-align: left;
-width: 200px; /* Increase the width */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    text-align: left;
+    width: 200px;
+    /* Increase the width */
 }
+
 #dropdown-button:hover {
-padding: 10px;
-border-radius: 5px;
-border: 1px solid #ccc;
-font-size: 16px;
-background-color: #b20149;
-color: #white;
-cursor: pointer;
-text-align: left;
-width: 200px; /* Increase the width */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #b20149;
+    color: #white;
+    cursor: pointer;
+    text-align: left;
+    width: 200px;
+    /* Increase the width */
 
 }
 
 .dropdown-content {
-display: none;
-position: absolute;
-color: white;
-background-color: #333;
-min-width: 160px;
-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-z-index: 1001; /* Ensure dropdown content is above the map */
-left: 0;
+    display: none;
+    position: absolute;
+    color: white;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    /* Ensure dropdown content is above the map */
+    left: 0;
 }
 
 .dropdown-content.show {
-display: block;
+    display: block;
 }
 
 .dropdown-option {
-padding: 10px;
-cursor: pointer;
-display: flex;
-align-items: left;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: left;
 }
 
 .dropdown-option:hover {
-background-color: #b20149;
+    background-color: #b20149;
 }
 
 .dropdown-logo {
-width: 25px;
+    width: 25px;
 
-height: 25px;
-vertical-align: middle;
-float: left; 
+    height: 25px;
+    vertical-align: middle;
+    float: left;
 }
+
 .dropdown-text {
-text-align: center;
-vertical-align: middle;
-height: 25px;
+    text-align: center;
+    vertical-align: middle;
+    height: 25px;
 }
 
-#map {
-height: 100vh; /* Default height for larger screens */
-z-index: 0; /* Ensure map is below the dropdown */
+html, body #map {
+    height: 100vh;
+    overflow: hidden;
+    z-index: 0;
 }
-
+@media (max-width: 768px) {
+    #map {
+      height: 50vh; /* Adjust height for smaller screens */
+    }
+  }
 .building-item {
-border: 1px solid #ccc;
-padding: 20px;
-margin-bottom: 20px;
-border-radius: 5px;
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .building-item img {
-margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .building-item h2 {
-margin-bottom: 5px;
+    margin-bottom: 5px;
 }
 
 .building-item a {
-display: block;
-margin-bottom: 5px;
+    display: block;
+    margin-bottom: 5px;
 }
+/* Add this to public/styles.css */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  footer a {
+    color: #b20149;
+    text-decoration: none;
+    margin: 0 10px;
+  }
+  
+  footer a:hover {
+    text-decoration: underline;
+  }
+  
+  #footer-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  #footer-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #b20149;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 33px;
+    height: 33px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure button is above other elements */
+  }
+  span.footerlable {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #footer-toggle:hover {
+    background-color: #333;
+  }
