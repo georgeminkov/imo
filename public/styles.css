@@ -1,0 +1,153 @@
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+}
+
+h1 {
+text-align: center;
+margin-bottom: 20px;
+}
+
+ul {
+list-style-type: none;
+padding: 0;
+}
+
+li {
+margin-bottom: 20px;
+border-bottom: 1px solid #ccc;
+padding-bottom: 10px;
+}
+
+h2 {
+margin-bottom: 5px;
+}
+
+a {
+color: #007bff;
+text-decoration: none;
+}
+
+img {
+max-width: 200px;
+display: block;
+margin: 0 auto;
+}
+
+#top-bar {
+display: flex;
+align-items: center;
+justify-content: space-between;
+background-color: #333;
+color: #b20149;
+padding: 10px;
+position: relative;
+z-index: 1000; /* Ensure top bar is above the map */
+}
+
+#logo {
+height: 40px;
+margin-left: 10px;
+}
+
+#top-bar h1 {
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+margin: 0;
+}
+
+#custom-dropdown {
+position: relative;
+display: inline-block;
+}
+
+#dropdown-button {
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #ccc;
+font-size: 16px;
+background-color: #333;
+color: white;
+cursor: pointer;
+text-align: left;
+width: 200px; /* Increase the width */
+}
+#dropdown-button:hover {
+padding: 10px;
+border-radius: 5px;
+border: 1px solid #ccc;
+font-size: 16px;
+background-color: #b20149;
+color: #white;
+cursor: pointer;
+text-align: left;
+width: 200px; /* Increase the width */
+
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+color: white;
+background-color: #333;
+min-width: 160px;
+box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+z-index: 1001; /* Ensure dropdown content is above the map */
+left: 0;
+}
+
+.dropdown-content.show {
+display: block;
+}
+
+.dropdown-option {
+padding: 10px;
+cursor: pointer;
+display: flex;
+align-items: left;
+}
+
+.dropdown-option:hover {
+background-color: #b20149;
+}
+
+.dropdown-logo {
+width: 25px;
+
+height: 25px;
+vertical-align: middle;
+float: left; 
+}
+.dropdown-text {
+text-align: center;
+vertical-align: middle;
+height: 25px;
+}
+
+#map {
+height: 100vh; /* Default height for larger screens */
+z-index: 0; /* Ensure map is below the dropdown */
+}
+
+.building-item {
+border: 1px solid #ccc;
+padding: 20px;
+margin-bottom: 20px;
+border-radius: 5px;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.building-item img {
+margin-bottom: 10px;
+}
+
+.building-item h2 {
+margin-bottom: 5px;
+}
+
+.building-item a {
+display: block;
+margin-bottom: 5px;
+}

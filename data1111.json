@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Building A",
+    "link": "https://example.com/building-a",
+    "image": "building_a.jpg",
+    "location": {
+      "lat": 42.66311078103665, 
+      "lng": 23.382694926230023
+    }
+  },
+  {
+    "name": "Building B",
+    "link": "https://example.com/building-b",
+    "image": "building_b.jpg",
+    "location": {
+      "lat": 42.647614365941116, 
+      "lng": 23.354492673614534
+    }
+  },
+  {
+    "name": "Arteks",
+    "link": "https://www.arteks.net/Estir",
+    "image": "https://www.arteks.net/data/uploads/moxesImages/obn7soxtyy8vuq_crop450x337topcenter.png",
+    "location": {
+      "lat": 42.65485878327207,
+      "lng": 23.373608589301103
+    }
+  },
+  {
+    "name": "Iris Park",
+    "link": "https://irispark.bg",
+    "image": "https://irispark.bg/wp-content/uploads/2022/08/Iris-Park-Image-17.jpg",
+    "location": {
+      "lat": 42.6286538467283,
+      "lng": 23.370439375083183
+    }
+  },
+  {
+    "name": "Mladost 4 project",
+    "link": "https://www.peevski.com/index.php/projects/",
+    "image": "mladost4-p.jpg",
+    "location": {
+      "lat": 42.628002501681976,
+      "lng": 23.371442968104272
+    }
+  },
+  {
+    "name": "Simetria",
+    "link": "https://simetriamladost.bg/bg/",
+    "image": "https://simetriamladost.bg/service/image?a1kwQjdUWnJNb3NRelU2eWJVcmZ0VktSUzZ3bCtMRC9HWFZXQmh0YzlsMzhCeE13anBRSDcyNmlmTEovY1U2UFNhQjJWaktQWHNGTDFGYmlpUzN0WEE9PQ__",
+    "location": {
+      "lat": 42.62597076634152,
+      "lng": 23.368305523702258
+    }
+  },
+  {
+    "name": "UpTown Square",
+    "link": "https://bld.bg/bg/proekti/uptown-square/360-virtualen-model",
+    "image": "https://bld.bg/web/files/gallery/45/images/BLD%20UPTOWN_VIEW_02.jpg",
+    "location": {
+      "lat": 42.660785606794285,
+      "lng": 23.32065021679832
+    }
+  },
+  {
+    "name": "M Tower",
+    "link": "https://mtower.bg/",
+    "image": "https://mtower.bg/wp-content/uploads/2023/05/eksterior-4.jpg",
+    "location": {
+      "lat": 42.64637349488866,
+      "lng": 23.376623752773504
+    }
+  }
+]
