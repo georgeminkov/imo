@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Fetch and display comments for the investors page
+    // split comments on topics (investors) and fetch based on that along with "news feed type"
     fetch('/api/comments')
       .then(response => response.json())
       .then(comments => {

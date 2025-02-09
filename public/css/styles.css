@@ -44,7 +44,6 @@ img {
     padding: 10px;
     position: relative;
     z-index: 1000;
-    /* Ensure top bar is above the map */
 }
 
 #logo {
@@ -74,7 +73,6 @@ img {
     cursor: pointer;
     text-align: left;
     width: 200px;
-    /* Increase the width */
 }
 
 #dropdown-button:hover {
@@ -87,8 +85,6 @@ img {
     cursor: pointer;
     text-align: left;
     width: 200px;
-    /* Increase the width */
-
 }
 
 .dropdown-content {
@@ -99,7 +95,6 @@ img {
     min-width: 160px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1001;
-    /* Ensure dropdown content is above the map */
     left: 0;
 }
 
@@ -139,7 +134,7 @@ html, body #map {
 }
 @media (max-width: 768px) {
     #map {
-      height: 50vh; /* Adjust height for smaller screens */
+      height: 50vh;
     }
   }
 .building-item {
@@ -162,7 +157,7 @@ html, body #map {
     display: block;
     margin-bottom: 5px;
 }
-/* Add this to public/styles.css */
+/*footer specific*/
 footer {
     background-color: #333;
     color: white;
@@ -188,8 +183,8 @@ footer {
   
   #footer-icons {
     display: flex;
-    gap: 10px;
-    align-items: center;
+    gap: 20px;
+    padding-right: 5%;
   }
   
   #footer-toggle {
@@ -202,9 +197,9 @@ footer {
     border-radius: 50%;
     width: 33px;
     height: 33px;
-    font-size: 20px;
+    font-size: 15px;
     cursor: pointer;
-    z-index: 1000; /* Ensure button is above other elements */
+    z-index: 1000;
   }
   span.footerlable {
     margin-left: auto;
@@ -213,3 +208,20 @@ footer {
   #footer-toggle:hover {
     background-color: #333;
   }
+
+  /*investor page specific*/
+  .investor {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.investor img {
+    margin-bottom: 10px;
+}
+
+.investor h5 {
+    margin-bottom: 5px;
+}
