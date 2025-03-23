@@ -1,7 +1,13 @@
 fetch('/api/buildings')
     .then(response => response.json())
     .then(buildings => {
-        const map = L.map('map').setView([42.697306774560765, 23.32446587858401], 12);
+        const map = L.map('map', {
+            maxBounds: [
+                [42.0, 23.0], 
+                [43.0, 24.0]
+            ],
+            maxBoundsViscosity: 1.0
+        }).setView([42.697306774560765, 23.32446587858401], 12);
         L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/">Humanitarian OpenStreetMap Team</a>'
         }).addTo(map);
