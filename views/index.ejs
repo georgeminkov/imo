@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>TITLE HERE</title>
+    <title><%= labels.appName %></title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -11,7 +11,7 @@
 <body>
     <div id="top-bar">
         <img src="img/logo.png" alt="Logo" id="logo">
-        <h1>HEAAD LABLE</h1>
+        <h1><%= labels.appName %></h1>
         <div id="custom-dropdown">
             <button id="dropdown-button">All Investors</button>
             <div id="dropdown-content" class="dropdown-content">
@@ -20,8 +20,9 @@
     </div>
     <div id="map"></div>
     <footer id="page-footer">
-        <span class="footerlable">Site Name</span>
+        <span class="footerlable" style="text-align: center;";"><%= labels.appName %></span>
         <div id="footer-icons">
+            <span>Powered by <%= labels.poweredByName %></span>
             <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
             <a href="mailto:example@example.com"><i class="fas fa-envelope"></i></a>
         </div>

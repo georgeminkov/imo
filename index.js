@@ -5,12 +5,10 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
-
+const appName = process.env.APPLICATION;
+const poweredByName = process.env.POWERED_BY;
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGODB_URI);
 
 
 // Define a schema and model for investors
@@ -33,7 +31,9 @@ const buildingSchema = new mongoose.Schema({
   },
   image: String,
   link: String,
-  investor: { type: mongoose.Schema.Types.ObjectId, ref: 'Investor' }
+  investor: { type: mongoose.Schema.Types.ObjectId, ref: 'Investor' },
+  stage: String,
+  nameBg: String
 });
 const Building = mongoose.model('Building', buildingSchema);
 
@@ -90,7 +90,7 @@ app.use(express.static('public'));
 
 // Define a route for the home page
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {labels: {appName: appName, poweredByName: poweredByName}});
 });
 
 app.listen(port, () => {
