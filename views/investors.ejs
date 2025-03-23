@@ -12,22 +12,20 @@
         <h1>HEAAD LABLE</h1>
     </div>
     <div id="investors-list">
-        <% investors.forEach(investor=> { %>
+        <% investors.forEach(investor => { %>
             <div class="investor">
                 <h5>
-                    <%= investor.name %>
+                    <img src="<%= investor.website %>/<%= investor.logo %>" alt="<%= investor.name %>" style="display: inline;width:40px;height:40px;">
+                    <a href="<%= investor.website %>" style="display: inline;"><%= investor.name %> </a>
                 </h5>
-                <p>Website: <a href="<%= investor.website %>">
-                        <%= investor.website %>
-                    </a></p>
-                
             </div>
-            <% }) %>
+        <% }) %>
     </div>
-    <h2>Comments</h2>
+    <!-- <h2>Comments</h2>
     <div id="comments-section">
-        <!-- TODO -->
+        !TODO 
     </div>
+    -->
     <script src="js/comments.js"></script>
 </body>
 

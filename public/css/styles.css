@@ -212,6 +212,12 @@ footer {
   }
 
   /*investor page specific*/
+  #investors-list {
+    max-height: 90vh; /* Adjust the height as needed */
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
   .investor {
     border: 1px solid #ccc;
     padding: 20px;
@@ -226,4 +232,39 @@ footer {
 
 .investor h5 {
     margin-bottom: 5px;
+}
+
+/*menu*/
+.menu-burger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.menu-burger-icon {
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+}
+
+.menu-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    right: 0;
+    top: 40px;
+}
+
+.menu-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.menu-content a:hover {
+    background-color: #f1f1f1;
 }
