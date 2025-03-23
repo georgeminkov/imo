@@ -76,7 +76,7 @@ app.get('/api/comments', async (req, res) => {
 app.get('/investors', async (req, res) => {
   try {
     const investors = await Investor.find();
-    res.render('investors', { investors });
+    res.render('investors', { investors, labels:{appName: appName, poweredByName: poweredByName} });
   } catch (err) {
     res.status(500).send(err);
   }
