@@ -17,7 +17,8 @@ const investorSchema = new mongoose.Schema({
   nameBG: String,
   website: String,
   logo: String,
-  contacts: String
+  contacts: String,
+  premium: Boolean
 });
 
 const Investor = mongoose.model('Investor', investorSchema);

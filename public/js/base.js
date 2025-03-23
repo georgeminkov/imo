@@ -1,13 +1,7 @@
 fetch('/api/buildings')
     .then(response => response.json())
     .then(buildings => {
-        const map = L.map('map', {
-            maxBounds: [
-                [42.0, 23.0], // Southwest coordinates
-                [43.0, 24.0]  // Northeast coordinates
-            ],
-            maxBoundsViscosity: 1.0
-        }).setView([42.697306774560765, 23.32446587858401], 12);
+        const map = L.map('map').setView([42.697306774560765, 23.32446587858401], 12);
         L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/">Humanitarian OpenStreetMap Team</a>'
         }).addTo(map);
@@ -16,15 +10,7 @@ fetch('/api/buildings')
         const dropdownContent = document.getElementById('dropdown-content');
         const investors = {};
         const markers = [];
-        const allInvestorsOption = document.createElement('div');
-        allInvestorsOption.className = 'dropdown-option';
-        allInvestorsOption.innerText = 'All Investors';
-        allInvestorsOption.addEventListener('click', () => {
-            dropdownButton.innerText = 'Filter: All Investors';
-            dropdownContent.classList.remove('show');
-            filterMarkers("");
-        });
-        dropdownContent.appendChild(allInvestorsOption);
+
         buildings.forEach(building => {
             if (building.investor) {
                 investors[building.investor.name] = building.investor;
@@ -40,14 +26,23 @@ fetch('/api/buildings')
 
             const marker = L.marker([building.location.lat, building.location.lng], { icon: buildingIcon })
                 .bindPopup(`<strong><a href="${building.link}" target="_blank">${building.name}</a></strong><br>
-      <img src="${building.image}" alt="${building.name}" style="width:200px;height:150px;"><br>
-      <strong>Investor:  </strong><a href="${building.investor ? building.investor.website : 'N/A'}" target="_blank">${building.investor ? building.investor.name : 'N/A'}</a>
-      <strong> Stage:  </strong><a>${building.stage ? building.stage : "Unknown"}</a>`);
+        <img src="${building.image}" alt="${building.name}" style="width:200px;height:150px;"><br>
+        <strong>Investor:  </strong><a href="${building.investor ? building.investor.website : 'N/A'}" target="_blank|_parent">${building.investor ? building.investor.name : 'N/A'}</a>
+        <strong> Stage:  </strong><a>${building.stage ? building.stage : "Unknown"}</a>`);
             markers.push({ marker, investor: building.investor ? building.investor.name : null });
             marker.addTo(map);
         });
+        const sortedInvestorNames = Object.keys(investors).sort((a, b) => {
+            const isPremiumA = investors[a].premium ? 1 : 0;
+            const isPremiumB = investors[b].premium ? 1 : 0;
+            if (isPremiumA !== isPremiumB) {
+                return isPremiumB - isPremiumA;
+            }
+            return a.localeCompare(b);
+        });
 
-        for (const [name, investor] of Object.entries(investors)) {
+        sortedInvestorNames.forEach(name => {
+            const investor = investors[name];
             const option = document.createElement('div');
             option.className = 'dropdown-option';
             option.innerHTML = `<div><img src="${investor.website}/${investor.logo}" alt="${name}" class="dropdown-logo"></div> <div class="dropdown-text" >${name}</div>`;
@@ -57,7 +52,7 @@ fetch('/api/buildings')
                 filterMarkers(name);
             });
             dropdownContent.appendChild(option);
-        }
+        });
 
         dropdownButton.addEventListener('click', () => {
             dropdownContent.classList.toggle('show');
