@@ -3,7 +3,7 @@ fetch('/api/buildings')
     .then(buildings => {
         const map = L.map('map', {
             maxBounds: [
-                [42.0, 23.0], 
+                [42.0, 23.0],
                 [43.0, 24.0]
             ],
             maxBoundsViscosity: 1.0
@@ -46,18 +46,38 @@ fetch('/api/buildings')
             }
             return a.localeCompare(b);
         });
-
+        sortedInvestorNames.unshift("All Investors")
+        console.log(sortedInvestorNames)
         sortedInvestorNames.forEach(name => {
-            const investor = investors[name];
-            const option = document.createElement('div');
-            option.className = 'dropdown-option';
-            option.innerHTML = `<div><img src="${investor.website}/${investor.logo}" alt="${name}" class="dropdown-logo"></div> <div class="dropdown-text" >${name}</div>`;
-            option.addEventListener('click', () => {
-                dropdownButton.innerHTML = `<div><img src="${investor.website}/${investor.logo}" alt="${name}" class="dropdown-logo"></div><div>${name}</div>`;
-                dropdownContent.classList.remove('show');
-                filterMarkers(name);
-            });
-            dropdownContent.appendChild(option);
+            console.log("here is the forEach name: "+name)
+            if (name !== "All Investors") {
+                const investor = investors[name];
+                // console.log(investor)
+                const option = document.createElement('div');
+                option.className = 'dropdown-option';
+                option.innerHTML = `<div><img src="${investor.website}/${investor.logo}" alt="${name}" class="dropdown-logo"></div> <div class="dropdown-text" >${name}</div>`;
+                option.addEventListener('click', () => {
+                    dropdownButton.innerHTML = `<div><img src="${investor.website}/${investor.logo}" alt="${name}" class="dropdown-logo"></div><div>${name}</div>`;
+                    dropdownContent.classList.remove('show');
+                    filterMarkers(name);
+                });
+                dropdownContent.appendChild(option);
+                console.log(option)
+            } else {
+                const option = document.createElement('div');
+                option.className = 'dropdown-option';
+                option.innerHTML = `<div><img src="img/logo.png" alt="All Investors" class="dropdown-logo"></div> <div class="dropdown-text">All Investors</div>`;
+                option.addEventListener('click', () => {
+                    dropdownButton.innerHTML = `<div><img src="img/logo.png" alt="All Investors" class="dropdown-logo"></div><div>All Investors</div>`;
+                    dropdownContent.classList.remove('show');
+                    filterMarkers(name);
+                });
+                dropdownContent.appendChild(option);
+                console.log(option)
+            }
+            // console.log(option)
+            // selectAll = `<div><img src="img/logo.png" alt="All Investors></div><div class="dropdown-text">All Investors</div>`;      
+            
         });
 
         dropdownButton.addEventListener('click', () => {
@@ -66,7 +86,7 @@ fetch('/api/buildings')
 
         function filterMarkers(selectedInvestor) {
             markers.forEach(({ marker, investor }) => {
-                if (selectedInvestor === "" || investor === selectedInvestor) {
+                if (selectedInvestor === "" || selectedInvestor === "All Investors" || investor === selectedInvestor) {
                     marker.addTo(map);
                 } else {
                     map.removeLayer(marker);
