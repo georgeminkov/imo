@@ -29,8 +29,14 @@ fetch('/api/buildings')
                 iconAnchor: [16, 32],
                 popupAnchor: [0, -32]
             });
+            const customIcon = L.divIcon({
+                className: '',
+                html: `<div class="custom-pin"><img src="${iconUrl}" alt="Pin Image" /></div>`,
+                iconSize: [21, 21],
+                iconAnchor: [11, 22]
+                });
 
-            const marker = L.marker([building.location.lat, building.location.lng], { icon: buildingIcon })
+            const marker = L.marker([building.location.lat, building.location.lng], { icon: customIcon })
                 .bindPopup(`<strong><a href="${building.link}" target="_blank">${building.name}</a></strong><br>
         <img src="${building.image}" alt="${building.name}" style="width:200px;height:150px;"><br>
         <strong>Investor:  </strong><a href="${building.investor ? building.investor.website : 'N/A'}" target="_blank|_parent">${building.investor ? building.investor.name : 'N/A'}</a>
