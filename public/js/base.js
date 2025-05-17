@@ -61,9 +61,9 @@ fetch('/api/buildings')
                 // console.log(investor)
                 const option = document.createElement('div');
                 option.className = 'dropdown-option';
-                option.innerHTML = `<div><img src="${investor.website}/${investor.logo}" alt="${name}" class="dropdown-logo"></div> <div class="dropdown-text" >${name}</div>`;
+                option.innerHTML = `<div class="dropdown-logo"><img src="${investor.website}/${investor.logo}" alt="${name}"></div><div class="dropdown-text">${name}</div>`;
                 option.addEventListener('click', () => {
-                    dropdownButton.innerHTML = `<div><img src="${investor.website}/${investor.logo}" alt="${name}" class="dropdown-logo"></div><div>${name}</div>`;
+                    dropdownButton.innerHTML = `<div class="dropdown-logo"><img src="${investor.website}/${investor.logo}" alt="${name}"></div><div class="dropdown-text">${name}</div>`;
                     dropdownContent.classList.remove('show');
                     filterMarkers(name);
                 });
@@ -72,18 +72,15 @@ fetch('/api/buildings')
             } else {
                 const option = document.createElement('div');
                 option.className = 'dropdown-option';
-                option.innerHTML = `<div><img src="img/logo.png" alt="All Investors" class="dropdown-logo"></div> <div class="dropdown-text">All Investors</div>`;
+                option.innerHTML = `<div class="dropdown-logo"><img src="img/logo.png" alt="All Investors"></div><div class="dropdown-text">All Investors</div>`;
                 option.addEventListener('click', () => {
-                    dropdownButton.innerHTML = `<div><img src="img/logo.png" alt="All Investors" class="dropdown-logo"></div><div>All Investors</div>`;
+                    dropdownButton.innerHTML = `<div class="dropdown-logo"><img src="img/logo.png" alt="All Investors"></div><div class="dropdown-text">All Investors</div>`;
                     dropdownContent.classList.remove('show');
                     filterMarkers(name);
                 });
                 dropdownContent.appendChild(option);
                 console.log(option)
             }
-            // console.log(option)
-            // selectAll = `<div><img src="img/logo.png" alt="All Investors></div><div class="dropdown-text">All Investors</div>`;      
-            
         });
 
         dropdownButton.addEventListener('click', () => {
